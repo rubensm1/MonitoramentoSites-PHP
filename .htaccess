@@ -1,0 +1,10 @@
+Header set Access-Control-Allow-Origin *
+
+RewriteEngine on
+
+RewriteRule ^/?([a-z]*)?/?([a-z]*)?/?$    index.php?view=$1&action=$2  [L]
+
+#RewriteRule ws    endpoint/client.php  [L]
+
+RewriteRule ws ws://vhost.com:5555/ [P]
+

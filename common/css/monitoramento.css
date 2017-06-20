@@ -1,0 +1,113 @@
+
+form.arrumar {
+    height: inherit;
+    margin: 0px;
+}
+form.arrumar > table {
+    margin: auto;
+}
+
+.barraBotoes {
+    width: 140px;
+    margin: 1px 5px;
+}
+
+.centraliza {
+    text-align: center;
+}
+div.layout-arruma-height > div {
+    position: initial !important;
+}
+div.layout-arruma-height div.ui-datatable-scrollable-body {
+    height: calc(100% - 27px);
+    overflow-y: scroll;
+    margin: 0px !important;
+}
+
+.ui-datatable.ui-widget.tabela-monitoramento {
+    height: calc(100% - 30px);
+}
+.ui-datatable.ui-widget.tabela-monitoramento table, .ui-datatable.ui-widget.tabela-monitoramento table button {
+    font-size: 14px;
+}
+
+.tabela-monitoramento td:nth-child(6n -5) {
+    text-align: center;
+    width: 20px;
+}
+.tabela-monitoramento td:eq(6n -4) {
+    text-align: center;
+    width: 30px;
+}
+.tabela-monitoramento td:eq(6n -1) {
+    text-align: center;
+    width: 120px;
+}
+.tabela-monitoramento td:eq(6n) {
+    text-align: center;
+    width: 90px;
+}
+.tabela-monitoramento thead th.colunaStatus{
+    width: 106px;
+    /*min-width: 49px;*/
+}
+.tabela-monitoramento tbody td.colunaStatus{
+    text-align: center;
+    width: 120px;
+    height: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    padding: 4px 3px;
+    /*position: absolute;*/
+}
+.tabela-monitoramento input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+	display: block;
+    margin: 0px;
+}
+
+table.estiloSort > tbody > tr:first-child td {
+    width: 60px;
+    text-align: center;
+}
+table.estiloSortRadios td {
+    padding: 0px;
+    text-align: center;
+}
+table.estiloSortRadios td:nth-child(2n -1) {
+    width: 81px;
+}
+
+
+
+
+.ui-datatable-tr {
+    background-image: linear-gradient(to top, rgba(0,0,0,0.1), transparent, rgba(255,255,255,0.1));
+    background-color: #FFFFFF;
+}
+.ui-datatable-tr.pauleado {
+    background-color: rgb(255,101,101);
+}
+.ui-datatable-tr.aguardando {
+    background-color: rgb(216,216,216);
+}
+.ui-datatable-tr.ok0 {
+    background-color: rgb(178,216,254);
+}
+.ui-datatable-tr.ok1 {
+    background-color: rgb(144,228,218);
+}
+.ui-datatable-tr.ok2 {
+    background-color: rgb(144,228,144);
+}
+.ui-datatable-tr.ok3 {
+    background-color: rgb(204,228,144);
+}
+.ui-datatable-tr.ok4 {
+    background-color: rgb(246,230,144);
+}
+.ui-datatable-tr.ok5 {
+    background-color: rgb(246,200,144);
+}
