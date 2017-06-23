@@ -12,6 +12,11 @@ class SistemaController extends Controller {
 		$this->set("maquinaList", $this->maquinaTable());
     }
 
+	public function completo($sistemaId) {
+		$this->set("sistema", json_encode(Sistema::load($sistemaId)));
+		$this->set("maquinaList", $this->maquinaTable());
+    }
+	
     public function salvar($dados) {
         $sistema = new Sistema($dados);
         $sistema = $sistema->persist();
@@ -34,12 +39,13 @@ class SistemaController extends Controller {
 	
 	public function maquinaTable() {
 		$this->uses("Maquina");
-		$maquinas = Maquina::select(array('nome', 'ip', 'ativa'), array());
+		$maquinas = Maquina::select(array('id', 'nome', 'ip', 'ativa'), array());
 		$maquinaRows = "";
 		foreach ($maquinas as $maquina) 
-			$maquinaRows .= "<tr><td>" . 
-			$maquina['nome'] . "</td><td>" . 
-			$maquina['ip'] . "</td><td>" . 
+			$maquinaRows .= "<tr><td class=\"id-maquina-td\">" . 
+			$maquina['id'] . "</td><td class=\"nome-maquina-td\">" . 
+			$maquina['nome'] . "</td><td class=\"ip-maquina-td\">" . 
+			$maquina['ip'] . "</td><td class=\"ativa-maquina-td\">" . 
 			($maquina['ativa'] ? 'Sim' : 'Não') . 
 			"</td><td style=\"text-align: center;\"><button class=\"selecionar-maquina-button reduz-button\">Selecionar</button></td></tr>";
 		return $maquinaRows;

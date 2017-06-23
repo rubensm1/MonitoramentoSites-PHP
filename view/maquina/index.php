@@ -16,7 +16,6 @@
         <tr><td>dataRegistro:</td><td><input type="date" name="dataRegistro" value="2017-06-12" required /></td></tr>
         <tr><td>semDNS:</td><td><input type="checkbox" name="semDNS" value="false" onchange="this.value = this.checked" /></td></tr>
         <tr><td>ativa:</td><td><input type="checkbox" name="ativa" value="false" onchange="this.value = this.checked" /></td></tr>
-        
     </table>
 </form>
 

@@ -86,6 +86,7 @@ abstract class Model implements JsonSerializable {
 			return FALSE;
 		$obj = $class::load($this->id);
 		$valores = $this->toArray();
+		self::prepareToPersistInRelationalDatabase($valores);
 		if ($obj)
 			$sql = self::geraUpdate($valores);
 		else {
@@ -172,17 +173,17 @@ abstract class Model implements JsonSerializable {
     }
 
     public static function consultaNomeColunas() {
-	$class = get_called_class();
-	$table = $class::$useTable;
-	$colunsNames = array();
-	$resultado = self::$conexao->getColunasTable($table);
-	/* while ($linha = mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
-	  array_push($colunsNames, $linha['Field']);
-	  if ($linha['Key'] == 'PRI')
-	  array_push($primaryKey, "<KEY>".$linha['Field']."</KEY>");
-	  }
-	  return $colunsNames; */
-	return $resultado;
+		$class = get_called_class();
+		$table = $class::$useTable;
+		$colunsNames = array();
+		$resultado = self::$conexao->getColunasTable($table);
+		/* while ($linha = mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
+		  array_push($colunsNames, $linha['Field']);
+		  if ($linha['Key'] == 'PRI')
+		  array_push($primaryKey, "<KEY>".$linha['Field']."</KEY>");
+		  }
+		  return $colunsNames; */
+		return $resultado;
     }
 
     /**
@@ -293,6 +294,17 @@ abstract class Model implements JsonSerializable {
 		}
 		return $sql;
     }
+	
+	
+	/**
+     * Prepara os valores que são objetos para serem inseridos em um banco de dados Relacional <br/>
+     */
+	private static function prepareToPersistInRelationalDatabase(&$valores){
+		foreach ($valores as $key => $value) {
+			if (is_object($value))
+				$valores[$key] = $value->id;
+		}
+	}
 
     public static function htmlTable($limit = 0) {
 		$class = get_called_class();

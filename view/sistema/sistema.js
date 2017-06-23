@@ -3,7 +3,7 @@ var Sistema;
 Sistema = (function() {
 
     function Sistema(data) {
-        if (typeof data != "object")
+        if (data == null || typeof data != "object")
             return;
         this.id = data["id"];
         this.nome = data["nome"];
@@ -28,7 +28,23 @@ Sistema = (function() {
     
     Sistema.prototype.htmlTable = View.prototype.htmlTable;
 	
-	Sistema.prototype.carregarForm = View.prototype.carregarForm;
+	Sistema.prototype.carregarForm = function (objeto, classe) {
+		if (objeto == null) 
+			objeto = this;
+		if (classe == null)
+			classe = this.constructor.name;
+		classe = classe.toLowerCase();
+		$("#sistema-form")[0].reset();
+		//$("#sistema-form").deserializeObject(objeto);
+		$("#sistema-form [name='id']").val(objeto.id ? objeto.id : "");
+		$("#sistema-form [name='nome']").val(objeto.nome ? objeto.nome : "");
+		$("#sistema-form [name='urlProducao']").val(objeto.urlProducao ? objeto.urlProducao : "");
+		$("#sistema-form [name='urlHomologacao']").val(objeto.urlHomologacao ? objeto.urlHomologacao : "");
+		$("#sistema-form [name='maquinaProducao']").val(objeto.maquinaProducao ? objeto.maquinaProducao.id : "");
+		$("#sistema-form [name='maquinaHomologacao']").val(objeto.maquinaHomologacao ? objeto.maquinaHomologacao.id : "");
+		selecionarMaquina(objeto.maquinaProducao, true);
+		selecionarMaquina(objeto.maquinaHomologacao, false);
+    };
     
     return Sistema;
 })();

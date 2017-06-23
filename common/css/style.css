@@ -34,18 +34,18 @@ label {
     background: #FFFFFF;
     color: black;
 }
-.panel.panel-jquery {
+.panel.panel-jquery, .panel.panel-free {
     border-color: #333;
 }
 #conteudo .panel.panel-jquery {
     height: calc(100% - 75px);
 }
-.panel.panel-jquery .panel-heading {
+.panel.panel-jquery .panel-heading, .panel.panel-free .panel-heading {
     color: #fff;
     border-color: #333;
     background: #333 url("../framework/images/ui-bg_gloss-wave_25_333333_500x100.png") 50% 50% repeat-x;
 }
-.panel.panel-jquery .panel-body {
+.panel.panel-jquery .panel-body, .panel.panel-free .panel-body {
     padding: 5px;
 }
 
@@ -104,6 +104,12 @@ form.model-form input[type="date"] {
 form.model-form select {
     height: 26px;
 }
+form .not-selected {
+	font-weight: initial;
+	font-style: italic;
+	color: gray;
+}
+
 div.model-forms {
     display: inline-flex;
     width: calc(100% - 15px) !important;

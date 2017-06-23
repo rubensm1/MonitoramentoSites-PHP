@@ -8,19 +8,19 @@
         <title><?php echo $titulo; ?></title>
 
         <!-- CSS -->
-        <link href="common/framework/jquery-ui.min.css" rel="stylesheet" />
-        <link href="common/framework/bootstrap.min.css" rel="stylesheet" />
-        <link href="common/css/style.css" rel="stylesheet" />
-		<link href="common/css/monitoramento.css" rel="stylesheet" />
+        <link href="<?php echo CONTEXT_PATH; ?>/common/framework/jquery-ui.min.css" rel="stylesheet" />
+        <link href="<?php echo CONTEXT_PATH; ?>/common/framework/bootstrap.min.css" rel="stylesheet" />
+        <link href="<?php echo CONTEXT_PATH; ?>/common/css/style.css" rel="stylesheet" />
+		<link href="<?php echo CONTEXT_PATH; ?>/common/css/monitoramento.css" rel="stylesheet" />
 
         <!-- Javascript -->
-        <script src="common/framework/jquery.min.js"></script>
-        <script src="common/framework/bootstrap.min.js"></script>
-        <script src="common/framework/jquery-ui.min.js"></script>
+        <script src="<?php echo CONTEXT_PATH; ?>/common/framework/jquery.min.js"></script>
+        <script src="<?php echo CONTEXT_PATH; ?>/common/framework/bootstrap.min.js"></script>
+        <script src="<?php echo CONTEXT_PATH; ?>/common/framework/jquery-ui.min.js"></script>
         <!-- http://igorescobar.github.io/jQuery-Mask-Plugin/ -->
-        <script src="common/framework/jquery.mask.min.js"></script>
-        <script src="view/view.js"></script>
-        <?php echo isset($name) ? '<script src="view/'. $name . '/' . $name .'.js"></script>' : ""; ?>
+        <script src="<?php echo CONTEXT_PATH; ?>/common/framework/jquery.mask.min.js"></script>
+        <script src="<?php echo CONTEXT_PATH; ?>/view/view.js"></script>
+        <?php echo isset($name) ? '<script src="' . CONTEXT_PATH . '/view/'. $name . '/' . $name .'.js"></script>' : ""; ?>
 		<?php /*include "common/framework/phpseclib1.0.2/Net/SSH2.php";*/ ?>
 
         <script>
@@ -65,7 +65,7 @@
                 $.ajax({
                     //context: $(this),
                     type: "POST",
-                    url: "ajax.php?view=" + view + "&action=" + action,
+                    url: "<?php echo CONTEXT_PATH; ?>/ajax.php?view=" + view + "&action=" + action,
                     //dataType: 'json',
                     data: data,
                     async: false
