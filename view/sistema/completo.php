@@ -1,5 +1,5 @@
 <script src="<?php echo CONTEXT_PATH; ?>/view/maquina/maquina.js"></script>
-<div class="panel panel-free">
+<div class="panel panel-free" style="width: 59%; float: left;">
     <div class="panel-heading">Sistema</div>
 	<form id="sistema-form" class="model-form" method="POST">
 		<table class="table table-bordered">
@@ -31,6 +31,8 @@
 	</form>
 </div>
 
+<?php include "ssh.php"; ?>
+
 <div class="panel panel-jquery" style="display:none;">
     <div id="model-maquinas" class="div-model-table" class="panel-body">
         <table class="table table-bordered">
@@ -56,6 +58,8 @@
 	$(".bt-select-item" ).button({icons: {primary: "ui-icon-search"}, text: false});
 	
 	var isProducaoFlag = null;
+	
+	var panelSSH = new PanelSSH();
 	
 	function abreSelecaoMaquina(isProducao) {
 		isProducaoFlag = isProducao;
@@ -106,6 +110,8 @@
             {text: "Fechar", width: 100, click: function () {$(this).dialog("close");}}
         ]
     });*/
+	
+	
 	
 	$("#model-maquinas").dialog({
         title: "Selecionar Máquina",

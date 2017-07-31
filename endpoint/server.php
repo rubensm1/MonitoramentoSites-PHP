@@ -150,7 +150,7 @@ class WebSocketImpl extends WebSocket {
 		
 		$this->ansi = new File_ANSI();
 		$this->ansi->appendString($saida);
-		return $this->ansi->getScreen();
+		return $this->ansi->_getScreen();
 		
 		/*$newstring = preg_replace_callback( 
 			'/\x{001B}\[\d\d;\d\dm[^\x{001B}]*\x{001B}\[0m/', 
